@@ -7,23 +7,22 @@ function convertToF(celsius) {
   return (celsius !== "undefined" ? fahrenheit = (celsius * (9/5) + 32) : fahrenheit);
 }
 
-
 // ==============================
 // ===== REVERSE A STRING =======
 // ==============================
 function reverseString(str) {
   let newStr;
+  
   return (newStr = str.split("").reverse().join(""));
 }
-
 
 // ==============================
 // ======== FACTORIALIZE ========
 // ==============================
 function factorialize(num) {
   return (num === 0 || num === 1 ? 1 : num = num * factorialize(num-1));
-  
 }
+
 // ==============================
 // ======== LONGEST WORD ========
 // ==============================
