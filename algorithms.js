@@ -4,10 +4,7 @@
 function convertToF(celsius) {
   let fahrenheit;
 
-  if (celsius !== "undefined") {
-     fahrenheit = (celsius * (9/5) + 32);
-  }
-  return fahrenheit;
+  return (celsius !== "undefined" ? fahrenheit = (celsius * (9/5) + 32) : fahrenheit);
 }
 
 
@@ -15,9 +12,8 @@ function convertToF(celsius) {
 // ===== REVERSE A STRING =======
 // ==============================
 function reverseString(str) {
-  let newStr = str.split("").reverse().join("");
-  
-  return newStr;
+  let newStr;
+  return (newStr = str.split("").reverse().join(""));
 }
 
 
@@ -25,21 +21,16 @@ function reverseString(str) {
 // ======== FACTORIALIZE ========
 // ==============================
 function factorialize(num) {
-  if (num === 0 || num === 1) {
-    return 1;
-  } else {
-    num = num * factorialize(num-1);
-  }
-  return num;
+  return (num === 0 || num === 1 ? 1 : num = num * factorialize(num-1));
+  
 }
-
 // ==============================
 // ======== LONGEST WORD ========
 // ==============================
 function findLongestWordLength(str) {
   let newStr = str.split(" ");
   let longestWord = 0;
-
+  
   for ( let i = 0; i < newStr.length; i++) {
     if (newStr[i].length > longestWord) {
       longestWord = newStr[i].length;
