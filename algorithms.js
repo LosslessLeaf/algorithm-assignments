@@ -16,9 +16,7 @@ const reverseString = str => (newStr = str.split("").reverse().join(""));
 // ==============================
 // ======== FACTORIALIZE ========
 // ==============================
-function factorialize(num) {
-  return (num === 0 || num === 1 ? 1 : num = num * factorialize(num-1));
-}
+const factorialize = num => num === 0 || num === 1 ? 1 : num = num * factorialize(num-1);
 
 // ==============================
 // ======== LONGEST WORD ========
