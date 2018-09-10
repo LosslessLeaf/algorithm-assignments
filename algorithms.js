@@ -1,20 +1,17 @@
 // ==============================
 // === CONVERT TO CELSIUS =======
 // ==============================
-function convertToF(celsius) {
-  let fahrenheit;
+let fahrenheit;
 
-  return (celsius !== "undefined" ? fahrenheit = (celsius * (9/5) + 32) : fahrenheit);
-}
+const convertToF = (celsius) => (celsius !== "undefined" ? fahrenheit = (celsius * (9/5) + 32) : fahrenheit);
+
 
 // ==============================
 // ===== REVERSE A STRING =======
 // ==============================
-function reverseString(str) {
-  let newStr;
-  
-  return (newStr = str.split("").reverse().join(""));
-}
+let newStr;
+
+const reverseString = str => (newStr = str.split("").reverse().join(""));
 
 // ==============================
 // ======== FACTORIALIZE ========
