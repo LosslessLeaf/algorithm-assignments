@@ -19,6 +19,8 @@ reverseString("Hello world!");
 // ===============================================================================================
 const factorialize = num => num === 0 || num === 1 ? 1 : num = num * factorialize(num - 1);
 
+factorialize(5);
+
 // ===============================================================================================
 // ======== LONGEST WORD =========================================================================
 // ===============================================================================================
@@ -81,3 +83,83 @@ const repeatStringNumTimes = (str, num) => {
 };
 
 repeatStringNumTimes("hello", 3);
+
+// ===============================================================================================
+// ==== TRUNCATE A STRING ========================================================================
+// ===============================================================================================
+const truncateString = (str, num) => {
+    // Clear out that junk in your trunk
+    if (str.length > num) {
+        str = str.slice(0, num);
+        let newStr = str + "...";
+        return newStr;
+    }
+
+    return str;
+};
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+// ===============================================================================================
+// ==== FINDERS KEEPERS ==========================================================================
+// ===============================================================================================
+const findElement = (arr, func) => {
+    let num = 0;
+    for (let i = 0; i < arr.length; i++) {
+        num = arr[i];
+        if (func(num)) {
+            console.log(num);
+            return num;
+        }
+    }
+    return undefined;
+};
+
+findElement([1, 3, 5, 8, 9, 10], num => num % 2 === 0);
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+// ===============================================================================================
+// ==== BOO WHO(BOOLEAN CHECKER) =================================================================
+// ===============================================================================================
+const booWho = bool => (bool === true || bool === false) ? true : false;
+
+booWho(null);
+
+// ===============================================================================================
+// ==== TITLE CASE A SENTENCE ====================================================================
+// ===============================================================================================
+
+// function titleCase(str) {
+//     let finalString = "";
+//     let newStr = str.toLowerCase().split(" ");
+//     for (let i = 0; i < newStr.length; i++) {
+//       finalString += newStr[i].charAt(0).toUpperCase() + newStr[i].substring(1) + " ";
+//     }
+//   console.log(finalString);
+//   return finalString;
+// }
+
+// titleCase("I'm a little tea pot");
+
+
+const titleCase = (str) => {
+    let finalString = "";
+    let newStr = str.toLowerCase().split(" ");
+    console.log(finalString);
+    for (let i = 0; i < newStr.length; i++) {
+        if (i == newStr.length - 1) {
+            finalString += newStr[i].charAt(0).toUpperCase() + newStr[i].substring(1);
+        }
+        else {
+            finalString += newStr[i].charAt(0).toUpperCase() + newStr[i].substring(1) + " ";
+        }
+    }
+    console.log(finalString);
+    return finalString;
+};
+
+titleCase("I'm a little tea pot");
+
+// ===============================================================================================
+// ==== SLICES AND SPLICES =======================================================================
+// ===============================================================================================
