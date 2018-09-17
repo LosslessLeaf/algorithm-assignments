@@ -1,67 +1,83 @@
-// ==============================
-// === CONVERT TO CELSIUS =======
-// ==============================
+// ===============================================================================================
+// === CONVERT TO CELSIUS ========================================================================
+// ===============================================================================================
 let fahrenheit;
 
-const convertToF = (celsius) => (celsius !== "undefined" ? fahrenheit = (celsius * (9/5) + 32) : fahrenheit);
+const convertToF = (celsius) => (celsius !== "undefined" ? fahrenheit = (celsius * (9 / 5) + 32) : fahrenheit);
 
+convertToF(25);
 
-// ==============================
-// ===== REVERSE A STRING =======
-// ==============================
-let newStr;
+// ===============================================================================================
+// ===== REVERSE A STRING ========================================================================
+// ===============================================================================================
+const reverseString = str => str.split("").reverse().join("");
 
-const reverseString = str => (newStr = str.split("").reverse().join(""));
+reverseString("Hello world!");
 
-// ==============================
-// ======== FACTORIALIZE ========
-// ==============================
-const factorialize = num => num === 0 || num === 1 ? 1 : num = num * factorialize(num-1);
+// ===============================================================================================
+// ======== FACTORIALIZE =========================================================================
+// ===============================================================================================
+const factorialize = num => num === 0 || num === 1 ? 1 : num = num * factorialize(num - 1);
 
-// ==============================
-// ======== LONGEST WORD ========
-// ==============================
-function findLongestWordLength(str) {
-  let newStr = str.split(" ");
-  let longestWord = 0;
-  
-  for ( let i = 0; i < newStr.length; i++) {
-    if (newStr[i].length > longestWord) {
-      longestWord = newStr[i].length;
+// ===============================================================================================
+// ======== LONGEST WORD =========================================================================
+// ===============================================================================================
+const findLongestWordLength = str => {
+    let newStr = str.split(" ");
+    let longestWord = 0;
+
+    for (let i = 0; i < newStr.length; i++) {
+        if (newStr[i].length > longestWord) {
+            longestWord = newStr[i].length;
+        }
     }
-  }
-  return longestWord;
-}
+    return longestWord;
+};
 
-// ==============================
-// ====== LARGEST NUMBERS =======
-// ==============================
-function largestOfFour(arr) {
+findLongestWordLength("A cow jumped over the moon");
+
+// ===============================================================================================
+// ====== LARGEST NUMBERS ========================================================================
+// ===============================================================================================
+const largestOfFour = arr => {
     let largest = [-100, -100, -100, -100];
-    
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].length; j++) {
-            if(arr[i][j] > largest[i]) {
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] > largest[i]) {
                 largest[i] = arr[i][j];
                 console.log(largest);
             }
         }
     }
     console.log("This array: [" + largest + "] is the largest.");
-}
+};
 
 
-largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+largestOfFour([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1]
+]);
 
-// ==============================
-// ======= CONFIRM ENDING =======
-// ==============================
-
+// ===============================================================================================
+// ======= CONFIRM ENDING ========================================================================
+// ===============================================================================================
 const confirmEnding = (str, target) => str.slice(str.length - target.length) === target;
 
 confirmEnding("Bastian", "n");
 
-// ==============================
-// ==== REPEATSTRINGxTIMES ======
-// ==============================
+// ===============================================================================================
+// ==== REPEATSTRINGxTIMES =======================================================================
+// ===============================================================================================
+const repeatStringNumTimes = (str, num) => {
+    let newStr = "";
+    for (let i = 0; i < num; i++) {
+        newStr += str;
+    }
+    console.log(newStr);
+    return newStr;
+};
 
+repeatStringNumTimes("hello", 3);
