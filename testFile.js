@@ -1,8 +1,14 @@
-function frankenSplice(arr1, arr2, n) {
-    // It's alive. It's alive!
-    let array = [1, 2, 3];
-    array.splice(n, 0, arr1);
-    console.log(array);
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  for (let i = 0; i < arr.length; i++) {
+      if(!arr[i]) {
+          arr.splice(i, 1);
+          console.log(i);
+          i--;
+      }
+  }
+  console.log(arr);
+  return arr;
 }
 
-frankenSplice([1, 2, 3], [4, 5], 1);
+bouncer([7, "ate", "", false, 9]);
