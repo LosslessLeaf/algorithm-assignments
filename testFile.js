@@ -1,14 +1,12 @@
-function bouncer(arr) {
-  // Don't show a false ID to this bouncer.
-  for (let i = 0; i < arr.length; i++) {
-      if(!arr[i]) {
-          arr.splice(i, 1);
-          console.log(i);
-          i--;
-      }
-  }
-  console.log(arr);
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+
+
+  // Only change code above this line
   return arr;
 }
 
-bouncer([7, "ate", "", false, 9]);
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
