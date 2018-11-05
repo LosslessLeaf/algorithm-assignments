@@ -12,11 +12,9 @@ function factorialize(num) {
             updater -= 1;
             factorial *= updater;
         }
-
         console.log(factorial);
         return factorial;
     }
-
 }
 
 factorialize(12);

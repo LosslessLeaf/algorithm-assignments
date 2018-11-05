@@ -4,6 +4,7 @@ const frankenSplice = (arr1, arr2, n) => {
         newArr.splice(n, 0, arr1[i]);
         n++;
     }
+    console.log(newArr);
     return newArr;
 };
 
