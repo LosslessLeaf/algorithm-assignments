@@ -3,17 +3,19 @@ function whatIsInAName(collection, source) {
 
 
     console.log(Object.values(collection));
+        
+        
+        
+
+    for (let i = 0; i < collection.length; i++) {
 
 
-    // for (let i = 0; i < collection.length; i++) {
-
-
-    //     Object.keys(collection[i]).forEach(function(key) {
-    //         if (collection[i][key] == source[key]) {
-    //             console.log(collection[i][key]);
-    //         }
-    //     });
-    // }
+        Object.keys(collection[i]).forEach(function(key) {
+            if (collection[i][key] == source[key]) {
+                console.log(collection[i][key]);
+            }
+        });
+    }
     return arr;
 }
 
