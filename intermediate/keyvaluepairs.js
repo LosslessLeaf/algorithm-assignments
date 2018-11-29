@@ -76,37 +76,74 @@
 //     return arr;
 // }
 
+// function whatIsInAName(collection, source) {
+//     var arr = [];
+//     var matched = 0;
+//     var sourceProperties = Object.keys(source);
+//     for (let i = 0; i < collection.length; i++) {
+
+//         var collectionIndexProps = Object.keys(collection[i]);
+//         for (let j = 0; j < collectionIndexProps.length; j++) {
+//             for (let k = 0; k < sourceProperties.length; k++) {
+//                 if (collection[i].hasOwnProperty(sourceProperties[j])) {
+//                     matched++;
+//                 }
+//             }
+//             if (matched === sourceProperties.length || matched >= sourceProperties.length) {
+//                 arr.push(collection[i]);
+//             }
+//         }
+
+//     }
+
+
+
+
+
+//     console.log(arr);
+
+
+
+
+//     return arr;
+// }
+
+
+
 function whatIsInAName(collection, source) {
     var arr = [];
-    var matched = 0;
-    var sourceProperties = Object.keys(source);
-    for (let i = 0; i < collection.length; i++) {
+    var sourceArr = Object.keys(source);
+    var matchesFound = [];
+    
+    for (let i = 1; i <= sourceArr.length; i++) {
 
-        var collectionIndexProps = Object.keys(collection[i]);
-        for (let j = 0; j < collectionIndexProps.length; j++) {
-            for (let k = 0; k < sourceProperties.length; k++) {
-                if (collection[i].hasOwnProperty(sourceProperties[j])) {
-                    matched++;
-                }
-            }
-            if (matched === sourceProperties.length || matched >= sourceProperties.length) {
-                arr.push(collection[i]);
+        for (let j = 0; j < collection.length; j++) {
+            if (collection[j].hasOwnProperty(sourceArr[0]) && collection[j].hasOwnProperty(sourceArr[i])) {
+                matchesFound.push(collection[j]);
             }
         }
-
     }
+    console.log(matchesFound);
 
 
 
 
+    return matchesFound;
 
-    console.log(arr);
-
-
-
-
-    return arr;
 }
+
+// function whatIsInAName(collection, source) {
+    
+//     var arr = [];
+    
+//     arr = collection.filter(obj => {
+//         Object.keys(collection).every(key => {
+//             obj.hasOwnProperty(key) && obj[key] === source[key];
+//         });
+//     });
+    
+//     return arr;
+// }
 
 // whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 // whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 });
