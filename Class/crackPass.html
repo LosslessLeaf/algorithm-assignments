@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="header">
+			<input type="button" id="reset" value="Reset" onclick="reset()" />
+			<input type="button" id="newgame" value="New Game" onclick="newGame()" />
+		</div>
+
+		<form onsubmit="checkGuess()" id="guessbox">
+			<label>Enter your guess: </label>
+			<input type="text" id="userGuess" />
+			<button type="submit">Submit</button>
+		</form>
+
+		<div id="answerbox">
+			<div id="answer">
+				<div id="correctPosition">
+					<p># of Correct Position:</p>
+					<span id="corPos"></span>
+				</div>
+				<div id="correctNumbers">
+					<p># of Correct Numbers:</p>
+					<span id="corNum"></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			let passcode;
+			function checkGuess() {
+				let guess = document.getElementById("userGuess").value;
+				if (guess.length == 8 && !isNaN(guess)) {
+					crackPass(guess);
+				}
+			}
+			function newGame() {
+				passcode = Math.floor(Math.random() * Math.pow(10, 8));
+				return passcode;
+			}
+			function crackPass(guess) {
+				// console.log(guess);
+
+				// alert(guess);
+
+				// alert(passcode);
+
+				let guessArr = guess.split("");
+				let passcodeArr = passcode.split("");
+				let correctPosition = 0;
+
+				// get correct position
+				for (let i = 0; i < passcodeArr.length; i++) {
+					let guessChar = guess[i];
+					let passChar = passcode[i];
+
+					if (guessChar == passChar) {
+						correctPosition++;
+					}
+				}
+
+				let filterGuessArr = [];
+				let filterPassArr = [];
+				let correctSum = 0;
+
+				for (let i = 0; i <= 9; i++) {
+					filterGuessArr[i] = guessArr.filter(x => x == i);
+					filterPassArr[i] = passcodeArr.filter(x => x == i);
+				}
+
+				for (let i = 0; i <= 9; i++) {
+					if (filterGuessArr[i].length - filterPassArr[i].length <= 0) {
+						correctSum += filterGuessArr[i].length;
+					} else if (filterGuessArr[i].length - filterPassArr[i].length > 0) {
+						correctSum += filterPassArr[i].length;
+					}
+				}
+
+				document.getElementById("corPos").value = correctPosition;
+				document.getElementById("corNum").value = correctSum;
+				console.log(
+					`Correct number of items: ${correctSum}, # of Correct Position: ${correctPosition}`
+				);
+			}
+
+			function reset() {
+				passcode = 0;
+			}
+		</script>
+	</body>
+</html>
