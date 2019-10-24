@@ -5,9 +5,12 @@ function dropElements(arr, func) {
 		console.log(arr[i]);
 		if (func(arr[i]) == true) {
 			// flag = true;
-			i = arr.length;
-		} else {
-			arr.shift();
+			// i = arr.length;
+			arr.splice(0, i);
+			break;
+		}
+		if (i == arr.length - 1) {
+			arr = [];
 		}
 	}
 	console.log(arr);
