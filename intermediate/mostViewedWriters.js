@@ -13,18 +13,56 @@ function mostViewedWriters(topicIds, answerIds, views) {
 
 	questions.topics = [];
 	for (let e in topics) {
+		let index = parseInt(topics[e]);
 		questions.topics[e] = {
-			topicId: e,
-			topic: topics[e]
+			topic: topics[e],
+			answers: []
 		};
 	}
 
-	for (let e in questions.topics) {
-		console.log(questions.topics[e]);
-		questions.topics[e].answers = [];
+	// LOOP THROUGH TOPIC IDS
+	for (let e in topicIds) {
+		// FOR EACH TOPIC IN TOPICIDS[e]
+		for (let i = 0; i < topicIds[e].length; i++) {
+			// FOR EACH TOPIC IN QUESTIONS - FILL ANSWERS
+			for (let j = 0; j < questions.topics.length; j++) {
+				// IF TOPIC == TOPIC IN TOPICID[e] ARRAY THEN
+				if (questions.topics[j].topic == topicIds[e][i]) {
+					// FOR EACH ANSWER, RELATE THAT TO RELEVANT TOPIC
+					for (let answer in answerIds[e]) {
+						// PUSH ANSWERID TO ANSWER ARRAY
+						questions.topics[j].answers.push(answerIds[e][answer]);
+					}
+				}
+			}
+		}
 	}
-	for (let e in answerIds) {
-		if ((questions.topics.topicId = answerIds[e])) {
+
+	for (let e in questions.topics) {
+		// SORT ANSWER IDS ASCENDING
+		questions.topics[e].answers.sort((a, b) => a > b);
+		// console.log(questions.topics[e]);
+	}
+
+	for (let viewArr in views) {
+		let answerID = views[viewArr][0];
+		let userID = views[viewArr][1];
+		let viewCount = views[viewArr][2];
+
+		console.log(
+			"Answer ID:",
+			answerID,
+			"User ID:",
+			userID,
+			"Views:",
+			viewCount
+		);
+		let index;
+		for (let e in questions.topics) {
+			index = questions.topics[e].answers.indexOf(answerID);
+			if (index > 0) {
+				console.log(questions.topics[e].answers[index]);
+			}
 		}
 	}
 }
