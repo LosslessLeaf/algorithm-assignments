@@ -27,6 +27,7 @@ function smallestCommons(arr) {
 				break;
 			}
 		}
+		console.log(answer);
 		answer++;
 	}
 	// console.log(answer - 1);
